@@ -1,0 +1,450 @@
+/* =========================================================
+   PÁGINA SERVICIOS
+========================================================= */
+
+.servicios-layout {
+    width: 90%;
+    max-width: 1300px;
+
+    margin: 50px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.servicio-card {
+    width: 100%;
+
+    height: fit-content;
+
+    padding: 35px;
+
+    background-color: var(--rosa-claro);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(142, 124, 195, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.servicio-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(142, 124, 195, 0.25);
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.servicio-card h2 {
+    margin-bottom: 20px;
+
+    color: var(--violeta);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    line-height: 1.25;
+
+    text-align: center;
+}
+
+
+.servicio-card h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+
+    color: var(--rosa);
+
+    font-size: 19px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   PÁRRAFOS
+========================================================= */
+
+.servicio-card p {
+    margin-bottom: 18px;
+
+    color: var(--negro);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+.servicio-card strong {
+    color: var(--violeta-oscuro);
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.servicio-lista {
+    margin: 20px 0 25px;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.servicio-lista li {
+    position: relative;
+
+    margin-bottom: 14px;
+
+    padding-left: 28px;
+
+    color: var(--negro);
+
+    line-height: 1.6;
+}
+
+
+/* ESTRELLITA DE LA LISTA */
+
+.servicio-lista li::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    color: var(--rosa);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   BOTONES DE SERVICIOS
+========================================================= */
+
+.servicio-card .explorar-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+
+    padding: 12px 24px;
+
+    background-color: var(--violeta);
+
+    color: var(--blanco);
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.servicio-card .explorar-btn:hover {
+    background-color: var(--rosa);
+
+    color: var(--blanco);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(199, 125, 163, 0.30);
+}
+
+
+.servicio-card .explorar-btn:visited {
+    color: var(--blanco);
+}
+
+
+/* =========================================================
+   IMÁGENES DEL MEDIO
+========================================================= */
+
+.imagenes-servicios {
+    /* OCUPA LAS DOS COLUMNAS */
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    margin: 25px 0;
+
+    padding: 40px 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    align-items: center;
+
+    /*
+    Fondo suave para separar visualmente
+    las imágenes de las tarjetas
+    */
+    background-color:
+        rgba(255, 255, 255, 0.25);
+
+    border-radius: 22px;
+}
+
+
+/* IMAGEN */
+
+.imagenes-servicios img {
+    width: 100%;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(142, 124, 195, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* HOVER IMÁGENES */
+
+.imagenes-servicios img:hover {
+    transform:
+        translateY(-7px)
+        scale(1.02);
+
+    box-shadow:
+        0 16px 35px
+        rgba(142, 124, 195, 0.28);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .servicios-layout {
+        width: 94%;
+
+        gap: 22px;
+
+        margin: 40px auto;
+    }
+
+
+    .servicio-card {
+        padding: 27px;
+    }
+
+
+    .servicio-card h2 {
+        font-size: 25px;
+    }
+
+
+    .imagenes-servicios {
+        padding: 30px 20px;
+
+        gap: 18px;
+    }
+
+
+    .imagenes-servicios img {
+        height: 330px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .servicios-layout {
+        grid-template-columns: 1fr;
+    }
+
+
+    /*
+    Como ahora tenemos una sola columna,
+    las imágenes ya no necesitan ocupar dos.
+    */
+
+    .imagenes-servicios {
+        grid-column: auto;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    /*
+    La tercera imagen queda centrada abajo
+    */
+
+    .imagenes-servicios img:nth-child(3) {
+        grid-column: 1 / -1;
+
+        width: 50%;
+
+        justify-self: center;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .servicios-layout {
+        width: 92%;
+
+        margin: 30px auto;
+
+        gap: 20px;
+    }
+
+
+    .servicio-card {
+        padding: 24px 20px;
+
+        border-radius: 15px;
+    }
+
+
+    .servicio-card h2 {
+        font-size: 23px;
+    }
+
+
+    .servicio-card h3 {
+        font-size: 18px;
+    }
+
+
+    .servicio-card p,
+    .servicio-lista li {
+        font-size: 15px;
+    }
+
+
+    /* IMÁGENES UNA DEBAJO DE OTRA */
+
+    .imagenes-servicios {
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+
+        margin: 10px 0;
+    }
+
+
+    .imagenes-servicios img {
+        width: 100%;
+
+        height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
+    }
+
+
+    .imagenes-servicios img:nth-child(3) {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+
+    /* BOTONES MÁS CÓMODOS EN CELULAR */
+
+    .servicio-card .explorar-btn {
+        width: 100%;
+
+        margin-top: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .servicio-card {
+        padding: 20px 17px;
+    }
+
+
+    .servicio-card h2 {
+        font-size: 21px;
+    }
+
+
+    .imagenes-servicios {
+        padding: 15px;
+    }
+
+}
