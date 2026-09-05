@@ -2,6 +2,11 @@
    PÁGINA SERVICIOS
 ========================================================= */
 
+
+/* =========================================================
+   LAYOUT GENERAL
+========================================================= */
+
 .servicios-layout {
     width: 90%;
     max-width: 1300px;
@@ -25,7 +30,6 @@
 
 .servicio-card {
     width: 100%;
-
     height: fit-content;
 
     padding: 35px;
@@ -74,6 +78,17 @@
     line-height: 1.25;
 
     text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.servicio-card:hover h2 {
+    transform: scale(1.03);
+
+    color: var(--violeta-oscuro);
 }
 
 
@@ -131,6 +146,8 @@
 
     color: var(--negro);
 
+    font-size: 16px;
+
     line-height: 1.6;
 }
 
@@ -143,7 +160,6 @@
     position: absolute;
 
     top: 0;
-
     left: 0;
 
     color: var(--rosa);
@@ -153,7 +169,7 @@
 
 
 /* =========================================================
-   BOTONES DE SERVICIOS
+   BOTONES
 ========================================================= */
 
 .servicio-card .explorar-btn {
@@ -180,6 +196,7 @@
 
     transition:
         background-color 0.3s ease,
+        color 0.3s ease,
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
@@ -204,11 +221,10 @@
 
 
 /* =========================================================
-   IMÁGENES DEL MEDIO
+   IMÁGENES DE SERVICIOS
 ========================================================= */
 
 .imagenes-servicios {
-    /* OCUPA LAS DOS COLUMNAS */
     grid-column: 1 / -1;
 
     width: 100%;
@@ -226,10 +242,6 @@
 
     align-items: center;
 
-    /*
-    Fondo suave para separar visualmente
-    las imágenes de las tarjetas
-    */
     background-color:
         rgba(255, 255, 255, 0.25);
 
@@ -258,7 +270,7 @@
 }
 
 
-/* HOVER IMÁGENES */
+/* HOVER */
 
 .imagenes-servicios img:hover {
     transform:
@@ -321,11 +333,6 @@
     }
 
 
-    /*
-    Como ahora tenemos una sola columna,
-    las imágenes ya no necesitan ocupar dos.
-    */
-
     .imagenes-servicios {
         grid-column: auto;
 
@@ -333,10 +340,6 @@
             repeat(2, minmax(0, 1fr));
     }
 
-
-    /*
-    La tercera imagen queda centrada abajo
-    */
 
     .imagenes-servicios img:nth-child(3) {
         grid-column: 1 / -1;
@@ -387,7 +390,7 @@
     }
 
 
-    /* IMÁGENES UNA DEBAJO DE OTRA */
+    /* IMÁGENES UNA ABAJO DE OTRA */
 
     .imagenes-servicios {
         grid-template-columns: 1fr;
@@ -403,8 +406,6 @@
 
         height: auto;
 
-        max-height: none;
-
         object-fit: contain;
     }
 
@@ -416,7 +417,7 @@
     }
 
 
-    /* BOTONES MÁS CÓMODOS EN CELULAR */
+    /* BOTÓN EN CELULAR */
 
     .servicio-card .explorar-btn {
         width: 100%;
@@ -440,6 +441,17 @@
 
     .servicio-card h2 {
         font-size: 21px;
+    }
+
+
+    .servicio-card h3 {
+        font-size: 17px;
+    }
+
+
+    .servicio-card p,
+    .servicio-lista li {
+        font-size: 14px;
     }
 
 
