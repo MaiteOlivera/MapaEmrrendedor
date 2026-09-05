@@ -1,12 +1,3 @@
-/* =========================================================
-   PÁGINA CURSOS
-========================================================= */
-
-
-/* =========================================================
-   LAYOUT GENERAL
-========================================================= */
-
 .cursos-layout {
     width: 90%;
     max-width: 1300px;
@@ -19,18 +10,11 @@
         repeat(2, minmax(0, 1fr));
 
     gap: 30px;
-
-    align-items: start;
 }
 
 
-/* =========================================================
-   TARJETAS
-========================================================= */
-
 .curso-card {
     width: 100%;
-    height: fit-content;
 
     padding: 35px;
 
@@ -41,84 +25,42 @@
     box-shadow:
         0 8px 25px
         rgba(142, 124, 195, 0.15);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
 }
 
-.curso-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow:
-        0 15px 35px
-        rgba(142, 124, 195, 0.25);
-}
-
-
-/* =========================================================
-   TÍTULOS
-========================================================= */
 
 .curso-card h2 {
     margin-bottom: 20px;
 
     color: var(--violeta);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
     font-size: 28px;
-
-    line-height: 1.3;
 
     text-align: center;
 }
 
+
 .curso-card h3 {
-    margin-top: 20px;
     margin-bottom: 15px;
 
     color: var(--rosa);
-
-    font-size: 19px;
-
-    line-height: 1.4;
 }
 
-
-/* =========================================================
-   PÁRRAFOS
-========================================================= */
 
 .curso-card p {
     margin-bottom: 18px;
 
-    color: var(--negro);
-
-    font-size: 16px;
-
     line-height: 1.7;
 }
 
-.curso-card strong {
-    color: var(--violeta-oscuro);
-}
-
-
-/* =========================================================
-   LISTAS
-========================================================= */
 
 .curso-lista {
-    margin: 20px 0 25px;
+    margin: 20px 0;
 
     padding: 0;
 
     list-style: none;
 }
+
 
 .curso-lista li {
     position: relative;
@@ -126,195 +68,24 @@
     margin-bottom: 14px;
 
     padding-left: 28px;
-
-    color: var(--negro);
-
-    font-size: 16px;
-
-    line-height: 1.6;
 }
+
 
 .curso-lista li::before {
     content: "✦";
 
     position: absolute;
 
-    top: 0;
     left: 0;
 
     color: var(--rosa);
-
-    font-size: 18px;
 }
 
-
-/* =========================================================
-   EFECTO EN LOS TÍTULOS
-========================================================= */
-
-.curso-card h2 {
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease;
-}
-
-.curso-card:hover h2 {
-    transform: scale(1.03);
-
-    color: var(--violeta-oscuro);
-}
-
-
-/* =========================================================
-   LINKS / BOTONES SI LOS AGREGÁS
-========================================================= */
-
-.curso-card .explorar-btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 10px;
-
-    padding: 12px 24px;
-
-    background-color: var(--violeta);
-
-    color: var(--blanco);
-
-    border-radius: 9px;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.curso-card .explorar-btn:hover {
-    background-color: var(--rosa);
-
-    color: var(--blanco);
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 18px
-        rgba(199, 125, 163, 0.30);
-}
-
-.curso-card .explorar-btn:visited {
-    color: var(--blanco);
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1024px) {
-
-    .cursos-layout {
-        width: 94%;
-
-        gap: 22px;
-
-        margin: 40px auto;
-    }
-
-    .curso-card {
-        padding: 27px;
-    }
-
-    .curso-card h2 {
-        font-size: 25px;
-    }
-
-}
-
-
-/* =========================================================
-   TABLET PEQUEÑA
-========================================================= */
 
 @media (max-width: 800px) {
 
     .cursos-layout {
         grid-template-columns: 1fr;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .cursos-layout {
-        width: 92%;
-
-        margin: 30px auto;
-
-        gap: 20px;
-    }
-
-    .curso-card {
-        padding: 24px 20px;
-
-        border-radius: 15px;
-    }
-
-    .curso-card h2 {
-        font-size: 23px;
-    }
-
-    .curso-card h3 {
-        font-size: 18px;
-    }
-
-    .curso-card p,
-    .curso-lista li {
-        font-size: 15px;
-    }
-
-    .curso-card .explorar-btn {
-        width: 100%;
-
-        margin-top: 12px;
-    }
-
-}
-
-
-/* =========================================================
-   CELULARES MUY PEQUEÑOS
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .curso-card {
-        padding: 20px 17px;
-    }
-
-    .curso-card h2 {
-        font-size: 21px;
-    }
-
-    .curso-card h3 {
-        font-size: 17px;
-    }
-
-    .curso-card p,
-    .curso-lista li {
-        font-size: 14px;
     }
 
 }
