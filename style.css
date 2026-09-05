@@ -1,3 +1,12 @@
+/* =========================================================
+   MAPA EMPRENDEDOR - CSS GENERAL
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root {
     --violeta: #8e7cc3;
     --violeta-oscuro: #7563ad;
@@ -38,19 +47,23 @@
 }
 
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
+    margin: 0;
+
     background-color: var(--lila);
     color: var(--negro);
 
@@ -60,18 +73,41 @@ body {
     overflow-x: hidden;
 }
 
-
 img {
     display: block;
     max-width: 100%;
 }
 
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =========================================================
+   LINKS GENERALES
+========================================================= */
 
 a {
     color: var(--violeta);
     text-decoration: none;
+
+    transition:
+        color var(--transicion),
+        background-color var(--transicion),
+        transform var(--transicion);
 }
 
+a:hover {
+    color: var(--rosa);
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
 
 h1,
 h2,
@@ -80,8 +116,23 @@ h4 {
     font-family: var(--fuente-titulo);
 }
 
+h1 {
+    margin-bottom: 20px;
+    color: var(--violeta);
+}
 
-/* HEADER */
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
     width: 100%;
@@ -89,27 +140,57 @@ h4 {
 
     background-color: var(--rosa-claro);
 
-    background-image: url("./img/logo.jpeg");
+    background-image: url("/img/logo.jpeg");
 
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: entradaHeader 1.2s ease-out;
+}
+
+@keyframes entradaHeader {
+
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
 }
 
 
-/* BIENVENIDA */
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
 
 .container {
     width: 100%;
     max-width: var(--ancho-general);
 
     margin: 0 auto;
-
     padding: 35px 20px;
 
     text-align: center;
+
+    animation:
+        entradaBienvenida
+        1s ease-out
+        0.2s both;
 }
 
+
+/* =========================================================
+   BIENVENIDA
+========================================================= */
 
 #bienvenido {
     margin: 0;
@@ -121,15 +202,35 @@ h4 {
     line-height: 1.5;
 }
 
+.container p {
+    font-size: 17px;
+    line-height: 1.6;
+}
 
-/* COLUMNAS */
+@keyframes entradaBienvenida {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   COLUMNAS PRINCIPALES
+========================================================= */
 
 .columnas {
     width: 100%;
     max-width: 1400px;
 
     margin: 0 auto;
-
     padding: 0 20px 40px;
 
     display: grid;
@@ -143,6 +244,10 @@ h4 {
 }
 
 
+/* =========================================================
+   COLUMNAS
+========================================================= */
+
 .columna {
     padding: 30px;
 
@@ -152,11 +257,43 @@ h4 {
 
     text-align: center;
 
+    opacity: 0;
+
+    animation:
+        entradaColumna
+        0.8s ease-out
+        forwards;
+
     transition:
         transform var(--transicion),
         box-shadow var(--transicion);
 }
 
+.columna:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.columna:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.columna:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+@keyframes entradaColumna {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
 
 .columna:hover {
     transform: translateY(-8px);
@@ -165,21 +302,23 @@ h4 {
 }
 
 
-.columna h2 {
-    margin-bottom: 20px;
+/* =========================================================
+   CONTENIDO COLUMNAS
+========================================================= */
 
+.columna h2 {
     color: var(--violeta);
+
+    transition:
+        transform var(--transicion),
+        color var(--transicion);
 }
 
-
 .columna h3 {
-    margin-bottom: 15px;
-
     color: var(--rosa);
 
     line-height: 1.3;
 }
-
 
 .columna p {
     margin-bottom: 20px;
@@ -187,8 +326,14 @@ h4 {
     line-height: 1.6;
 }
 
+.columna:hover h2 {
+    transform: scale(1.04);
+}
 
-/* FOTO PERFIL */
+
+/* =========================================================
+   FOTO PERFIL
+========================================================= */
 
 .foto-perfil {
     width: 160px;
@@ -196,7 +341,7 @@ h4 {
 
     margin: 0 auto 20px;
 
-    object-fit: cover;
+    object-fit: contain;
 
     border-radius: 50%;
 
@@ -206,7 +351,9 @@ h4 {
 }
 
 
-/* BOTONES */
+/* =========================================================
+   BOTONES PRINCIPALES
+========================================================= */
 
 .explorar-btn,
 .btn,
@@ -219,12 +366,12 @@ h4 {
     padding: 11px 22px;
 
     background-color: var(--violeta);
-
     color: var(--blanco);
 
     border: none;
     border-radius: 8px;
 
+    font-family: var(--fuente-texto);
     font-size: 15px;
     font-weight: 600;
 
@@ -234,22 +381,20 @@ h4 {
 
     transition:
         background-color var(--transicion),
+        color var(--transicion),
         transform var(--transicion),
         box-shadow var(--transicion);
 }
-
 
 .explorar-btn:visited,
 .whatsapp-btn:visited {
     color: var(--blanco);
 }
 
-
 .explorar-btn:hover,
 .btn:hover,
 .whatsapp-btn:hover {
     background-color: var(--rosa);
-
     color: var(--blanco);
 
     transform: translateY(-3px);
@@ -259,8 +404,220 @@ h4 {
         rgba(199, 125, 163, 0.30);
 }
 
+.explorar-btn:active,
+.btn:active,
+.whatsapp-btn:active {
+    transform: scale(0.96);
+}
 
-/* FOOTER */
+
+/* =========================================================
+   BOTÓN SECUNDARIO
+========================================================= */
+
+.btn-secundario {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    border: 2px solid var(--violeta);
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: var(--violeta);
+
+    text-decoration: none;
+
+    transition:
+        background-color var(--transicion),
+        color var(--transicion),
+        transform var(--transicion);
+}
+
+.btn-secundario:hover {
+    background-color: var(--violeta);
+    color: var(--blanco);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   SECCIONES GENERALES
+========================================================= */
+
+.seccion {
+    width: 100%;
+    max-width: var(--ancho-general);
+
+    margin: 0 auto;
+
+    padding: 60px 20px;
+}
+
+.seccion-titulo {
+    margin-bottom: 15px;
+
+    color: var(--violeta);
+
+    font-size: 32px;
+
+    text-align: center;
+}
+
+.seccion-subtitulo {
+    margin-bottom: 30px;
+
+    color: var(--rosa);
+
+    font-size: 20px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TARJETAS GENERALES
+========================================================= */
+
+.tarjetas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.tarjeta {
+    padding: 30px;
+
+    background-color: var(--rosa-claro);
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+
+    transition:
+        transform var(--transicion),
+        box-shadow var(--transicion);
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--sombra-hover);
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+    color: var(--violeta);
+}
+
+.tarjeta p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.lista {
+    margin: 20px 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.lista li {
+    position: relative;
+
+    margin-bottom: 12px;
+
+    padding-left: 25px;
+}
+
+.lista li::before {
+    content: "✦";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--rosa);
+}
+
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+.formulario {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background-color: var(--rosa-claro);
+
+    border-radius: var(--radio);
+}
+
+.formulario label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--violeta);
+
+    font-weight: bold;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding: 12px;
+
+    border: 1px solid var(--lila);
+    border-radius: 8px;
+
+    background-color: var(--blanco);
+    color: var(--negro);
+
+    outline: none;
+}
+
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus {
+    border-color: var(--violeta);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(142, 124, 195, 0.15);
+}
+
+.formulario textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer {
     width: 100%;
@@ -268,8 +625,11 @@ h4 {
     margin-top: 60px;
 
     background-color: var(--rosa-claro);
+    color: var(--negro);
 
     border-top: 3px solid var(--rosa);
+
+    animation: aparecerFooter 1s ease-out;
 }
 
 
@@ -294,7 +654,6 @@ h4 {
     display: flex;
 
     flex-direction: column;
-
     align-items: flex-start;
 
     gap: 8px;
@@ -302,6 +661,8 @@ h4 {
 
 
 .footer-marca h2 {
+    margin-bottom: 12px;
+
     color: var(--violeta);
 
     font-size: 28px;
@@ -311,11 +672,17 @@ h4 {
 .footer-marca p {
     max-width: 350px;
 
+    margin: 0;
+
     color: var(--negro);
+
+    line-height: 1.7;
 }
 
 
 .footer-columna h3 {
+    margin-bottom: 12px;
+
     color: var(--rosa);
 
     font-size: 20px;
@@ -323,9 +690,23 @@ h4 {
 
 
 .footer-columna a {
+    display: inline-block;
+
+    position: relative;
+
+    width: fit-content;
+
+    padding: 3px 0;
+
     color: var(--violeta);
 
-    transition: 0.3s ease;
+    font-size: 15px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 
@@ -333,6 +714,28 @@ h4 {
     color: var(--rosa);
 
     transform: translateX(4px);
+}
+
+
+.footer-columna a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 1px;
+
+    background-color: var(--rosa);
+
+    transition: width 0.3s ease;
+}
+
+
+.footer-columna a:hover::after {
+    width: 100%;
 }
 
 
@@ -349,29 +752,78 @@ h4 {
 }
 
 
-/* TABLET */
+.footer-inferior p {
+    margin: 0;
 
-@media (max-width: 1024px) {
+    color: var(--negro);
+
+    font-size: 14px;
+}
+
+
+@keyframes aparecerFooter {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
 
     .header {
         min-height: 300px;
     }
 
+    .container {
+        padding: 30px 25px;
+    }
+
+    #bienvenido {
+        font-size: 23px;
+    }
 
     .columnas {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+
+        gap: 22px;
+
+        padding:
+            0 25px 40px;
     }
 
+    .columna:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
     .columna:nth-child(2) {
         grid-column: 1 / -1;
+        grid-row: 2;
 
         width: 65%;
 
         justify-self: center;
     }
 
+    .columna:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+    }
 
     .footer-contenido {
         grid-template-columns:
@@ -381,36 +833,49 @@ h4 {
 }
 
 
-/* CELULAR */
+/* =========================================================
+   CELULAR
+========================================================= */
 
 @media (max-width: 768px) {
 
     .header {
         min-height: 250px;
+
+        background-size: contain;
     }
 
+    .container {
+        padding: 25px 15px;
+    }
 
     #bienvenido {
         font-size: 21px;
     }
 
-
     .columnas {
+        width: 100%;
+
         grid-template-columns: 1fr;
 
+        gap: 20px;
+
         padding:
-            0
-            15px
-            30px;
+            0 15px 30px;
     }
 
+    .columna {
+        width: 100%;
+
+        padding: 25px 20px;
+    }
 
     .columna:nth-child(2) {
         width: 100%;
 
         grid-column: auto;
+        grid-row: auto;
     }
-
 
     .footer-contenido {
         grid-template-columns: 1fr;
@@ -419,7 +884,9 @@ h4 {
 }
 
 
-/* CELULAR PEQUEÑO */
+/* =========================================================
+   CELULAR PEQUEÑO
+========================================================= */
 
 @media (max-width: 480px) {
 
@@ -427,23 +894,112 @@ h4 {
         min-height: 210px;
     }
 
-
     #bienvenido {
         font-size: 19px;
     }
 
+    .container {
+        padding: 20px 14px;
+    }
+
+    .columnas {
+        padding:
+            0 12px 25px;
+
+        gap: 16px;
+    }
 
     .columna {
         padding:
-            22px
-            18px;
+            22px 18px;
     }
 
+    .columna h2 {
+        font-size: 23px;
+    }
+
+    .columna h3 {
+        font-size: 17px;
+    }
+
+    .columna p {
+        font-size: 15px;
+    }
 
     .explorar-btn,
     .btn,
+    .btn-secundario,
     .whatsapp-btn {
         width: 100%;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .header {
+        min-height: 180px;
+    }
+
+    #bienvenido {
+        font-size: 18px;
+    }
+
+    .columna {
+        padding: 20px 15px;
+    }
+
+    .columna h2 {
+        font-size: 21px;
+    }
+
+    .columna h3 {
+        font-size: 16px;
+    }
+
+    .columna p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .header,
+    .container,
+    .columna,
+    .footer {
+        animation: none;
+
+        opacity: 1;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
     }
 
 }
