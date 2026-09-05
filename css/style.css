@@ -1131,42 +1131,107 @@ h3 {
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* =========================================
+   FOOTER
+========================================= */
 
-    .footer {
-        margin-top: 40px;
-    }
+.footer {
+    margin-top: 60px;
+    padding: 50px 20px 20px;
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-columna h2,
+.footer-columna h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-columna p {
+    line-height: 1.6;
+    color: #dddddd;
+}
+
+
+/* BOTONES / LINKS DEL FOOTER */
+
+.footer-columna a {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 9px 16px;
+
+    text-decoration: none;
+
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+
+    cursor: pointer;
+}
+
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.footer-columna a:hover {
+    background-color: white;
+    color: #1f1f1f;
+
+    transform: translateY(-2px);
+}
+
+
+/* PARTE INFERIOR */
+
+.footer-inferior {
+    max-width: 1200px;
+
+    margin: 40px auto 0;
+    padding-top: 20px;
+
+    border-top: 1px solid #555;
+
+    text-align: center;
+
+    color: #bbbbbb;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
 
     .footer-contenido {
-        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
+}
+
+
+@media (max-width: 600px) {
+
+    .footer-contenido {
         grid-template-columns: 1fr;
-
-        gap: 30px;
-
-        padding:
-            40px
-            20px;
-
-        text-align: center;
-    }
-
-    .footer-columna {
-        align-items: center;
-    }
-
-    .footer-marca p {
-        max-width: 450px;
-
-        margin:
-            0
-            auto;
-    }
-
-    .footer-columna a:hover {
-        transform: translateY(-2px);
     }
 
 }
